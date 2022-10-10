@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<head>
+</head>
+
+<body>
+    <div style="width:100px; margin-top:50px">
+        <button id="contagemjs" onclick="Contagem()">Contagem (js)</button>
+        <button style="margin-top:5px" id="fibonaccijs" onclick="Fibonacci()">Fibonacci (js)</button>
+        <button style="margin-top:5px" id="mdcjs" onclick="MDC()">MDC (js)</button>
+        <button style="margin-top:5px" id="primojs" onclick="Primo()">Numero primo (js)</button>
+        <button style="margin-top:5px" id="somatoriojs" onclick="Somatorio()">Somatorio (js)</button>
+        <button style="margin-top:5px" id="sortjs" onclick="QuickSort()">Quicksort (js)</button>
+    </div>
+
+    <div style="width:100px; margin-top:50px">
+        <button id="contagemjava">Contagem (java)</button>
+        <button style="margin-top:5px" id="fibonaccijava">Fibonacci (java)</button>
+        <button style="margin-top:5px" id="mdcjava">MDC (java)</button>
+        <button style="margin-top:5px" id="primojava">Numero primo (java)</button>
+        <button style="margin-top:5px" id="somatoriojava">Somatorio (java)</button>
+        <button style="margin-top:5px" id="sortjava">Quicksort (java)</button>
+    </div>
+</body>
+
+<script>
+    function Contagem() {
+        // O valor de numeros inteiros entre 1 e um numero N é igual a N. Por esse motivo, fiz essa questão de acordo com minha interpretação, mostrando os numeros entre 1 e N.
+        numeros = []
+        N = prompt('Digite um numero para saber os valores inteiros entre 1 (incluido) e ele (incluido)')
+        for (i = 1; i <= parseInt(N); i++) {
+            numeros.push(i)
+        }
+        alert('O valor de numeros inteiros entre 1 e um numero N é igual a N. Por esse motivo, fiz essa questão de acordo com minha interpretação, mostrando os numeros entre 1 e N.' + '\n' + '\n' +numeros)
+    }
+    function Fibonacci() {
+        //Criei um loop que so conta os 20 primeiros numeros
+        fibonacci = [0, 1]
+        for (i = 2; i < 20; i++) {
+            fibonacci.push(fibonacci[(i - 1)] + fibonacci[(i - 2)])
+        }
+        alert('Criei um loop que mostra apenas os 20 primeiros numeros, mas voce pode mudar no for loop.' + '\n' + '\n' +fibonacci)
+    }
+    function MDC() {
+        function mdc(a, b) {
+            if (!b) alert(a)
+            else alert(b, a % b) 
+        }
+        a = parseInt(prompt('Digite um numero'))
+        b = parseInt(prompt('Digite outro numero para calcular o MDC entre os 2 numeros'))
+        mdc(a,b)
+    }
+    function Primo() {
+        primo = true
+        function ePrimo(num) {
+            for(i=2;i<num;i++){
+                if(num%i==0) {
+                    primo = false
+                    break
+                }
+            }
+            if(primo) {
+                alert('E primo')
+            }
+            else {
+                alert('Nao e primo')
+            }
+        }
+        
+        var numero = prompt('Digite um numero para saber se ele e primo')
+        ePrimo(numero)
+    }
+    function Somatorio() {
+        numeros = []
+        somatorio = 0
+        var input = prompt('Digite numeros a serem somados')
+        numeros = input.split(' ')
+        for (i = 0; i < numeros.length; i++) numeros[i] = parseInt(numeros[i])
+        for (i = 0; i < numeros.length; i++) somatorio = somatorio + numeros[i]
+        alert('Somatorio = ' + somatorio)
+
+    }
+    function QuickSort() {
+        function qs(vet) {
+            quickSort(vet, 0, vet.length - 1);
+        }
+
+        function quickSort(vet, ini, fim) {
+            var i = ini;
+            var f = fim;
+            var m = Math.floor((i + f) / 2);
+
+            while (i < f) {
+                while (vet[i] < vet[m])
+                    i++;
+
+                while (vet[f] > vet[m])
+                    f--;
+
+                if (i <= f) {
+                    var temp = vet[i];
+                    vet[i] = vet[f];
+                    vet[f] = temp;
+                    i++;
+                    f--;
+                }
+            }
+
+            if (f > ini)
+                quickSort(vet, ini, f);
+
+            if (i < fim)
+                quickSort(vet, i, fim);
+        }
+
+        arr = [2, 5, 3, 4, 11, 9]
+        alert('array antes do quicksort -> ' + arr)
+        qs(arr)
+        alert('array depois do quicksort -> ' + arr)
+    }
+</script>
+
+</html>
