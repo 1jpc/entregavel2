@@ -16,13 +16,12 @@
 
 <script>
     function Contagem() {
-        // O valor de numeros inteiros entre 1 e um numero N é igual a N. Por esse motivo, fiz essa questão de acordo com minha interpretação, mostrando os numeros entre 1 e N.
-        numeros = []
-        N = prompt('Digite um numero para saber os valores inteiros entre 1 (incluido) e ele (incluido)')
-        for (i = 1; i <= parseInt(N); i++) {
-            numeros.push(i)
+        quantInts = 0
+        num = prompt('Digite numeros para saber quantos inteiros ha entre esses numeros').split(' ')
+        for(i=0;i<num.length;i++) {
+            if(!(num[i].includes('.') || num[i].includes(,))) quantInts++
         }
-        alert('O valor de numeros inteiros entre 1 e um numero N é igual a N. Por esse motivo, fiz essa questão de acordo com minha interpretação, mostrando os numeros entre 1 e N.' + '\n' + '\n' +numeros)
+        alert(quantInts)
     }
     function Fibonacci() {
         //Criei um loop que so conta os 20 primeiros numeros
@@ -33,13 +32,25 @@
         alert('Criei um loop que mostra apenas os 20 primeiros numeros, mas voce pode mudar no for loop.' + '\n' + '\n' +fibonacci)
     }
     function MDC() {
-        function mdc(a, b) {
-            if (!b) alert(a)
-            else alert(b, a % b) 
+        mdc = 0
+        num = parseInt(prompt('Digite dois numeros pra saber seu MDC').split(' '))
+        
+        a = num[0]
+        b = num[1]
+        
+        if(a < b){
+            c = a
+            a = b
+            b = c
         }
-        a = parseInt(prompt('Digite um numero'))
-        b = parseInt(prompt('Digite outro numero para calcular o MDC entre os 2 numeros'))
-        mdc(a,b)
+        
+        for (i = 1; i < a; i++) {
+	         if (a % i == 0 && b % i == 0) {
+	               mdc = i;
+	         }
+	    }
+        
+        alert(mdc)
     }
     function Primo() {
         primo = true
